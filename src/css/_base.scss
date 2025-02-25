@@ -31,7 +31,7 @@ $sub-menu-font-size: 0.8em;
 
 @mixin respond-to($breakpoint) {
     @if $breakpoint == small {
-        @media (max-width: 655px) {@content;} //Platsmarkör för innehåll
+        @media (max-width: 670px) {@content;} //Platsmarkör för innehåll
     } @else if $breakpoint == dark-mode {
         @media (prefers-color-scheme: dark) {@content;}
     }

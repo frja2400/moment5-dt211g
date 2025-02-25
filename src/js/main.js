@@ -26,7 +26,7 @@
     //Händelselyssnare som ser till att desktopnivå syns direkt när fönstret är större än 655px.
     window.addEventListener("resize", function () {
         let navMenuEl = document.getElementById("nav-menu");
-        if (window.innerWidth > 655) {
+        if (window.innerWidth > 670) {
             navMenuEl.style.display = "block"; // Visa menyn för desktop.
         } else {
             navMenuEl.style.display = "none"; // Dölj menyn för mobil.
@@ -37,7 +37,7 @@
     document.querySelectorAll('#nav-menu a').forEach(link => {
         link.addEventListener('click', () => {
             // Kontrollera om skärmbredden är mindre än eller lika med 655px
-            if (window.innerWidth <= 655) {
+            if (window.innerWidth <= 670) {
                 document.getElementById('nav-menu').style.display = 'none';
             }
         });
