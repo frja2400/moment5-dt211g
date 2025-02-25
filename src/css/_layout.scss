@@ -1,0 +1,165 @@
+/*Importerar variabler och mixins från base utan namespace*/
+@use "base" as *;
+
+body {
+    font-family: $base-font;
+    @include flex-center;
+    background-color: $primary-color;
+    min-height: 100vh;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+/*Nesting*/
+main {
+    flex: 1;
+    padding: 2%;
+    @extend %full-width;
+    max-width: 500px;
+
+    p {
+        line-height: $base-line-height;
+    }
+
+    h3 {
+        text-align: center;
+        margin-top: 40px;
+    }
+    
+    h2 {
+        text-align: center;
+        background-color: rgba($lighten-color, 0.5);
+        color: $darken-color;
+    }
+}
+
+footer {
+    background-color: $tertiary-color;
+    @extend %full-width;
+
+    p {
+        text-align: center;
+        color: $text-color;
+    }
+}
+
+header {
+    background-color: $secondary-color;
+    @extend %full-width;
+    color: $text-color;
+    @include flex-center;
+    padding-top: 15px;
+
+    img {
+        margin-bottom: -5px;
+    }
+}
+
+.menu-container {
+    background-color: $tertiary-color;
+    @extend %full-width;
+    display: flex;
+    justify-content: center;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+    h1 {
+        color: $text-color;
+        font-size: $h1-font-size;
+        letter-spacing: $letter-spacing;
+    }
+}
+
+.menu nav {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.menu ul {
+    list-style-type: none;
+    display: flex;
+    gap: 40px;
+}
+
+.menu nav ul li a {
+    text-decoration: none;
+    color: $text-color;
+}
+
+.menu li {
+    font-weight: bold;
+    letter-spacing: $letter-spacing;
+}
+
+.menu-container .menu .menu-option {
+    position: relative; /*Referenspunkt till sub-menu*/
+    z-index: 1;
+}
+
+.menu-container .menu .menu-option .sub-menu {
+    flex-direction: column;
+    align-items: center;
+    position: absolute; /*Så att jag kan placera min sub-menu där jag vill ha den*/
+    background-color: $tertiary-color;
+    padding: 30px 10px 20px 10px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%); /*Centrerar undermenyn.*/
+    font-size: $sub-menu-font-size;
+    transition: 0.7s; /*Adderar tid för transition*/
+    opacity: 0; /*Börjar helt transparent*/
+    visibility: hidden; /*Sub-menu är gömd*/
+    margin-top: -30px; /*Skapar en neagtiv margin för effekt att den menyn kommer uppifrån och ned*/
+    z-index: -1; /*Ser till så att den hamnar bakom huvudmenyn*/
+}
+
+#animation {
+    width: 100px;
+}
+
+/*När du hovrar över så blir menyn gradvid synlig och fälls ut*/
+.menu-container .menu .menu-option:hover .sub-menu {
+    opacity: 1;
+    visibility: visible;
+    margin-top: 0;
+}
+
+.menu nav li#animations.menu-option > a:hover,
+.menu nav li#sass.menu-option > a:hover {
+    border-bottom: none;
+}
+
+.menu nav li.selected-menu a,
+.menu nav li.menu-option a:hover {
+    border-bottom: 2px solid $text-color;
+}
+
+.menu-btn {
+    display: none;
+}
+
+.intro, #utvardering {
+    margin-top: 50px;
+}
+
+.arrow {
+    margin-left: 5px;
+}
+
+.firstImage {
+    margin-bottom: 20px;
+}
+
+.animering {
+    text-align: center;
+}
+
+#animering1, #animering2, #animering3 {
+    background-color: transparent;
+}

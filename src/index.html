@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend-baserad webbutveckling</title>
+    <link rel="stylesheet" href="css/main.scss">
+    <script src="js/main.js" type="module"></script>
+</head>
+
+<body>
+    <header>
+        <img src="./images/matterhorn.webp?width=200" alt="Logga">
+    </header>
+    <div class="menu-container">
+        <div class="menu">
+            <h1>Moment 3</h1>
+
+            <!--Menyknapp för att öppna mobilmeny-->
+            <button class="menu-btn open" id="open-menu">
+                <span class="menu-icon">
+                    <span class="bars"></span>
+                    <span class="bars"></span>
+                    <span class="bars"></span>
+                </span>
+            </button>
+
+            <nav id="nav-menu">
+
+                <!--Knapp som visas om mobilmenyn är utfälld-->
+                <button class="menu-btn close" id="close-menu">
+                    <span class="menu-icon">
+                        <span class="bars cross1"></span>
+                        <span class="bars cross2"></span>
+                    </span>
+                </button>
+
+                <ul>
+                    <li class="selected-menu"><a href="index.html">Hem</a></li>
+                    <li class="menu-option"><a href="sass.html">SASS</a></li>
+                    <li class="menu-option"><a href="animation.html">Animering</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <main>
+        <p class="intro">Välkommen till min webbplats för moment 3 i Frontend-baserad webbutveckling!
+            Under "SASS" kan du läsa lite om sevärdheter i Bern där jag bor samt
+            utvärdering av mitt arbete med SASS.
+        </p>
+    </main>
+    <footer>
+        <p>Frida Jansson</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend-baserad webbutveckling</title>
+    <link rel="stylesheet" href="css/main.scss">
+    <script src="js/main.js" type="module"></script>
+    <script src="https://kit.fontawesome.com/e49202e377.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <img src="./images/matterhorn.webp?width=200" alt="Logga">
+    </header>
+    <div class="menu-container">
+        <div class="menu">
+            <h1>Moment 3</h1>
+
+            <!--Menyknapp för att öppna mobilmeny-->
+            <button class="menu-btn open" id="open-menu">
+                <span class="menu-icon">
+                    <span class="bars"></span>
+                    <span class="bars"></span>
+                    <span class="bars"></span>
+                </span>
+            </button>
+
+            <nav id="nav-menu">
+
+                <!--Knapp som visas om mobilmenyn är utfälld-->
+                <button class="menu-btn close" id="close-menu">
+                    <span class="menu-icon">
+                        <span class="bars cross1"></span>
+                        <span class="bars cross2"></span>
+                    </span>
+                </button>
+
+                <!--Adderar en undermeny-->
+                <ul>
+                    <li class="menu-option"><a href="index.html">Hem</a></li>
+                    <li class="menu-option" id="sass"><a href="sass.html">SASS <strong
+                                class="fas fa-chevron-down arrow"></strong></a>
+                        <ul class="sub-menu">
+                            <li><a href="#old-town">Old Town</a></li>
+                            <li><a href="#rosengarten">Rosengarten</a></li>
+                            <li><a href="#aare-river">Aare River</a></li>
+                            <li><a href="#bilder">Bilder</a></li>
+                            <li><a href="#utvardering">Utvärdering</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-option"><a href="animation.html">Animering</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <main>
+        <h2>Sevärdheter i Bern</h2>
+        <h3 id="old-town">Old Town</h3>
+        <p>Gamla stan i Bern har kilometerlånga arkader att promenera under med caféer, butiker och restauranger. Det
+            finns många historiska byggnader och en stor samling renässansfontäner. Ett av de mest kända landmärkena i
+            Bern är klocktornet Zytglogge.</p>
+        <h3 id="rosengarten">Rosengarten</h3>
+        <p>Rosengarten i Bern är en rospark som ligger på en kulle och har en fantastisk utsikt över Bern. Under
+            sommaren har parken cirka 250 olika sorters rosor tillsammans med andra blommor och växter. </p>
+        <h3 id="aare-river">Aare River</h3>
+        <p>Aare är en den längsta floden som både börjar och slutar helt inom Schweiz. Den passerar genom många städer
+            och omsluter helt Berns gamla stad. Att promenera längst med floden gör jag flera gånger i veckan.
+        </p>
+        <h3 id="bilder">Bilder</h3>
+
+        <!--Komprimerar bilder-->
+        <picture>
+            <source srcset="./images/matterhorn-mountain.jpg?as=webp&width=500" type="image/webp">
+            <img class="firstImage" src="./images/matterhorn-mountain.jpg?width500" alt="Berget Matterhorn i Schweiz">
+        </picture>
+        <picture>
+            <source srcset="./images/bern.jpg?as=webp&width=500" type="image/webp">
+            <img class="secondImage" src="./images/bern.jpg?width500" alt="Gamla staden i Bern">
+        </picture>
+        <h2 id="utvardering">Utvärdering</h2>
+        <p>Jag tyckte det gick bra att börja arbeta med SASS. Jag ser många fördelar med det och tyckte framför allt det
+            gjorde min kod enklare och mer strukturerad. Jag skrev vanlig CSS-kod först för att jag hade svårt att komma
+            in i tänket direkt och jag tyckte att det var enklare att se var och hur jag kunde använda SASS i efterhand.
+            Men det kom också med nackdelar såklart så framöver så vill jag implementera SASS direkt.
+        </p>
+    </main>
+    <footer>
+        <p>Frida Jansson</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+/*Variabler för färger*/
+$primary-color: #FFFDEF;
+$secondary-color: #C50000;
+$tertiary-color: #a52a2a;
+$text-color: #F1F1F1;
+$primary-color-dm: #c44545;
+$box-shadow: rgba(0, 0, 0, 0.71);
+
+/*Color funtions med lighten och darken*/
+$lighten-color: lighten($tertiary-color, 40%);
+$darken-color: darken($tertiary-color, 30%);
+
+/*Variabler för typsnitt och storlekar*/
+$base-font: 'Roboto', Helvetica, sans-serif;
+$base-line-height: 1.7em;
+$h1-font-size: 1.4em;
+$letter-spacing: 1px;
+$sub-menu-font-size: 0.8em;
+
+/*Platshållare*/
+%full-width {
+    width: 100%;
+}
+
+/*Mixins med if/else-sats*/
+@mixin flex-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == small {
+        @media (max-width: 655px) {@content;} //Platsmarkör för innehåll
+    } @else if $breakpoint == dark-mode {
+        @media (prefers-color-scheme: dark) {@content;}
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
