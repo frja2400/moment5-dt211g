@@ -22,48 +22,39 @@ async function createBarChart() {
     const courseNames = topCourses.map(course => course.name);
     const totalApplicants = topCourses.map(course => course.applicantsTotal);
 
-    const ctx = document.getElementById('myChart');
-
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: courseNames,
-            datasets: [{
-                label: 'Totalt sökande',
-                data: totalApplicants,
-                borderWidth: 1,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ]
-            }]
+    const options = {
+        chart: {
+            type: 'bar',
+            height: 350
         },
-        options: {
-            indexAxis: 'y',
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        stepSize: 200
-                    }
+        series: [{
+            name: 'Totalt sökande',
+            data: totalApplicants
+        }],
+        xaxis: {
+            categories: courseNames
+        },
+        plotOptions: {
+            bar: {
+                horizontal: true,
+                distributed: true,
+                colors: {
+                    backgroundBarColors: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    backgroundBarOpacity: 1
                 }
             }
         }
-    });
+    };
+
+    const chart = new ApexCharts(document.querySelector("#myChart"), options);
+    chart.render();
 }
 
 createBarChart();
