@@ -12,7 +12,7 @@ async function fetchData() {
     }
 }
 
-async function createChart() {
+async function createBarChart() {
     const data = await fetchData();
 
     const courses = data.filter(course => course.type === 'Kurs');
@@ -21,7 +21,6 @@ async function createChart() {
 
     const courseNames = topCourses.map(course => course.name);
     const totalApplicants = topCourses.map(course => course.applicantsTotal);
-
 
     const ctx = document.getElementById('myChart');
 
@@ -65,7 +64,38 @@ async function createChart() {
             }
         }
     });
+}
+
+createBarChart();
+
+async function createCircelChart() {
+    const data = await fetchData();
+
+    const programs = data.filter(program => program.type === 'Program');
+
+    const topPrograms = programs.sort((a, b) => b.applicantsTotal - a.applicantsTotal).slice(0, 5);
+
+    const programNames = topPrograms.map(program => program.name);
+    const totalApplicants = topPrograms.map(program => program.applicantsTotal);
+
+    const ctx = document.getElementById('myChart2');
+
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: programNames,
+            datasets: [{
+                label: 'Totalt sökande',
+                data: totalApplicants,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
 
 }
 
-createChart();
+createCircelChart();

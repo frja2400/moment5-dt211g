@@ -160,8 +160,12 @@ header {
     text-align: center;
 }
 
-#animering1, #animering2, #animering3, .diagramHeader {
+#animering1, #animering2, #animering3 {
     background-color: transparent;
+}
+
+.diagram {
+    max-width: 800px;
 }
 
 #myChart {
@@ -169,10 +173,7 @@ header {
     width: 100%;
 }
 
-.diagram {
-    max-width: 800px;
-}
-
 .diagramContainer {
     margin-bottom: 50px;
+    position: relative;
 }
