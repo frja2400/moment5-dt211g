@@ -160,6 +160,19 @@ header {
     text-align: center;
 }
 
-#animering1, #animering2, #animering3 {
+#animering1, #animering2, #animering3, .diagramHeader {
     background-color: transparent;
+}
+
+#myChart {
+    height: 400px;
+    width: 100%;
+}
+
+.diagram {
+    max-width: 800px;
+}
+
+.diagramContainer {
+    margin-bottom: 50px;
 }
