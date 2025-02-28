@@ -73,3 +73,42 @@ function expandLoading() {
 //Behövde göra den globalt tillgänglig pga button onlick.
 window.expandLoading = expandLoading;
 
+
+let map = L.map('map').setView([60.0, 18.0], 5);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+let marker;
+
+function searchLocation() {
+    let location = document.getElementById('search').value;
+    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${location}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.length > 0) {
+                let lat = data[0].lat;
+                let lon = data[0].lon;
+                map.setView([lat, lon], 15);
+
+                if (marker) {
+                    map.removeLayer(marker);
+                }
+
+                marker = L.marker([lat, lon]).addTo(map);
+            } else {
+                alert('Plats inte hittad');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+document.getElementById('search').addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        searchLocation();
+    }
+});
+
+window.searchLocation = searchLocation;

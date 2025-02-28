@@ -168,3 +168,19 @@ header {
 .diagram {
     max-width: 800px;
 }
+
+/*Designar sökfunktion för karta.*/
+input {
+    width: 80%;
+}
+
+.mapContainer {
+    @include flex-center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+}
