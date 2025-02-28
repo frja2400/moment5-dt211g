@@ -167,6 +167,7 @@ header {
 /*Justerade bredd för diagrammen.*/
 .diagram {
     max-width: 800px;
+    z-index: 0;
 }
 
 /*Designar sökfunktion för karta.*/
@@ -183,4 +184,5 @@ input {
 #map {
     height: 400px;
     width: 100%;
+    z-index: 0;
 }
