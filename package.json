@@ -8,10 +8,12 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel --no-hmr --open",
-    "build": "parcel build"
+    "build": "parcel build",
+    "doc": "jsdoc src/js/*.js -d out"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.13.3",
+    "jsdoc": "^4.0.4",
     "parcel": "^2.13.3",
     "sharp": "^0.33.5"
   }
