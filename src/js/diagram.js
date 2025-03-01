@@ -1,7 +1,13 @@
 "use strict";
 
 
-//Asynkron funktion som hämtar data från en URL och konverterar till JSON.
+/**
+ * Asynkron funktion som hämtar data från en URL och konverterar till JSON.
+ * 
+ * @function fetchData
+ * @returns {Promise} - Returnerar ett Promise vid slutfört hämtning och konvertering av data. 
+ * @throws {Error} - Fel vid misslyckad hämtning eller JSON-konvertering.
+ */
 async function fetchData() {
     //Använder try-catch för eventuella fel.
     try {
@@ -14,6 +20,13 @@ async function fetchData() {
     }
 }
 
+
+/**
+ * Asynkron funktion för att skapa ett stapeldiagram med ApexChart.js
+ * 
+ * @function createBarChart
+ * @returns {Promise} - Returnerar ett Promise när diagrammet har skapats med data från fetchData.
+ */
 async function createBarChart() {
 
     //Anropar fetchData och väntar på att datan ska bli tillgänglig. 
@@ -69,6 +82,11 @@ async function createBarChart() {
 
 createBarChart();
 
+
+/**
+ * Asynkron funktion för att skapa ett cirkeldiagram med Chart.js.
+ * @returns {Promise} - Returnerar ett Promise när diagrammet har skapats med data från fetchData.
+ */
 async function createCircelChart() {
 
     //Anropar fetchData och väntar på att datan ska bli tillgänglig. 

@@ -1,7 +1,8 @@
 "use strict";
 
-
-//Implementerar en karta med leaflet. 
+/**
+ * Implementerar en karta med leaflet.
+ */ 
 let map = L.map('map').setView([60.0, 18.0], 5);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -9,10 +10,17 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-//Deklarerar en variabel utan värde, för användning senare.
+/**
+ * Deklarerar en variabel utan värde, för användning senare i funktion searchLocation.
+ * @type {L.marker}
+ */
 let marker;
 
-//Funktion för sökning av plats i karta.
+
+/**
+ * Funktion för sökning av plats i karta.
+ * @function searchLocation
+ */
 function searchLocation() {
 
     //Hämtar värde från sökfält och lagrar det i en variabel
@@ -45,7 +53,9 @@ function searchLocation() {
         .catch(error => console.error('Error:', error));
 }
 
-//Skapar en händelselyssnare som anropar SearchLocation vid trycker av Enter.
+/**
+ * Skapar en händelselyssnare som anropar searchLocation vid tryck av Enter.
+ */
 document.getElementById('search').addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
         searchLocation();
