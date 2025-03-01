@@ -2,7 +2,7 @@
 
 /**
  * Implementerar en karta med leaflet.
- */ 
+ */
 let map = L.map('map').setView([60.0, 18.0], 5);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -12,7 +12,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 /**
  * Deklarerar en variabel utan värde, för användning senare i funktion searchLocation.
- * @type {L.marker}
+ * @type {L.Marker}
  */
 let marker;
 
@@ -23,18 +23,33 @@ let marker;
  */
 function searchLocation() {
 
-    //Hämtar värde från sökfält och lagrar det i en variabel
+    /**
+     * Hämtar värde från sökfält och lagrar det i en variabel
+     * @type {string}
+     */
     let query = document.getElementById('search').value;
 
-    /*Använder fetch för att hämta bas-URL för Nominatim API:s sökfunktion med parametrar som 
-    anger svaret i JSON-format och innehåller värdet från sökfältet.*/
+    //Använder fetch för att hämta bas-URL för Nominatim API:s sökfunktion med parametrar som anger svaret i JSON-format och innehåller värdet från sökfältet.
     fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${query}`)
         .then(response => response.json())
         .then(data => {
-            //Kontrollerar om det finns något resultat, om det finns objekt i data-arrayen.
+
+            /**
+             * Kontrollerar om det finns något resultat, om det finns objekt i data-arrayen.
+             * @type {Object}
+             */
             if (data.length > 0) {
-                //Hämtar första latitud och longitud från data-arrayen och uppdaterar kartan med koordinaterna.
+
+                /**
+                 * Hämtar första latitud från data-arrayen och uppdaterar kartan.
+                 * @type {number}
+                 */
                 let lat = data[0].lat;
+
+                 /**
+                 * Hämtar första longitud från data-arrayen och uppdaterar kartan.
+                 * @type {number}
+                 */
                 let lon = data[0].lon;
                 map.setView([lat, lon], 14);
 

@@ -9,7 +9,8 @@
   "scripts": {
     "start": "parcel --no-hmr --open",
     "build": "parcel build",
-    "doc": "jsdoc src/js/*.js -d out"
+    "clean-docs": "rmdir /s /q out && jsdoc -c jsdoc.json",
+    "doc": "npm run clean-docs"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.13.3",

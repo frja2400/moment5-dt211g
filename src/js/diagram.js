@@ -4,6 +4,7 @@
 /**
  * Asynkron funktion som hämtar data från en URL och konverterar till JSON.
  * 
+ * @async
  * @function fetchData
  * @returns {Promise} - Returnerar ett Promise vid slutfört hämtning och konvertering av data. 
  * @throws {Error} - Fel vid misslyckad hämtning eller JSON-konvertering.
@@ -22,8 +23,16 @@ async function fetchData() {
 
 
 /**
+ * @typedef {Object} Course - Namn jag anger till objekten som hämtas från URL:n. 
+ * @property {string} name - Egenskap i Course av typen sträng och namnet name.
+ * @property {string} type - Egenskap i Course av typen sträng och namnet type.
+ * @property {number} applicantsTotal - Egenskap i Course av typen nummer och namnet applicantsTotal.
+ */
+
+/**
  * Asynkron funktion för att skapa ett stapeldiagram med ApexChart.js
  * 
+ * @async
  * @function createBarChart
  * @returns {Promise} - Returnerar ett Promise när diagrammet har skapats med data från fetchData.
  */
@@ -84,7 +93,16 @@ createBarChart();
 
 
 /**
+ * @typedef {Object} Program - Namn jag anger till objekten som hämtas från URL:n. 
+ * @property {string} name - Egenskap i Program av typen sträng och namnet name.
+ * @property {string} type - Egenskap i Program av typen sträng och namnet type.
+ * @property {number} applicantsTotal - Egenskap i Program av typen nummer och namnet applicantsTotal.
+ */
+
+/**
  * Asynkron funktion för att skapa ett cirkeldiagram med Chart.js.
+ * @async
+ * @function createCircleChart
  * @returns {Promise} - Returnerar ett Promise när diagrammet har skapats med data från fetchData.
  */
 async function createCircelChart() {
