@@ -8,14 +8,13 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel --no-hmr --open",
-    "build": "parcel build",
-    "clean-docs": "rmdir /s /q out && jsdoc -c jsdoc.json",
-    "doc": "npm run clean-docs"
+    "build": "parcel build"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.13.3",
     "jsdoc": "^4.0.4",
     "parcel": "^2.13.3",
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "svgo": "^3.3.2"
   }
 }

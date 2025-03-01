@@ -1,8 +1,0 @@
-{
-    "source": {
-      "include": ["src/js/diagram.js", "src/js/map.js"]
-    },
-    "opts": {
-      "destination": "out"
-    }
-  }
